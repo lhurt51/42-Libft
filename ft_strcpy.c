@@ -14,21 +14,9 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	unsigned count;
+	char *s;
 
-	count = 0;
-	if (dst == NULL || src == NULL)
-		return (NULL);
-	while (src[count] != '\0')
-	{
-		dst[count] = src[count];
-		count++;
-	}
-	while (dst[count] != '\0')
-	{
-		dst[count] = '\0';
-		count++;
-	}
-	dst[count] = '\0';
+	s = dst;
+	while ((*s++ = *src++) != 0);
 	return (dst);
 }

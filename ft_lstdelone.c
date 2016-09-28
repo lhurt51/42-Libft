@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhurt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 12:55:55 by lhurt             #+#    #+#             */
-/*   Updated: 2016/09/24 12:55:57 by lhurt            ###   ########.fr       */
+/*   Created: 2016/09/27 13:10:13 by lhurt             #+#    #+#             */
+/*   Updated: 2016/09/27 13:10:14 by lhurt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t))
 {
-	size_t i;
-	size_t j;
-
-	j = 0;
-	i = (ft_strlen(s1));
-	while (s2[j] != '\0' && j < n)
+	if (*alst != NULL)
 	{
-		s1[i] = s2[j];
-		j++;
-		i++;
+		del((*alst)->content, (*alst)->content_size);
+		free(*alst);
+		*alst = NULL;
 	}
-	s1[i] = '\0';
-	return(s1);
 }

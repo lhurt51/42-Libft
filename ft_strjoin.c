@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhurt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 12:55:55 by lhurt             #+#    #+#             */
-/*   Updated: 2016/09/24 12:55:57 by lhurt            ###   ########.fr       */
+/*   Created: 2016/09/26 17:02:18 by lhurt             #+#    #+#             */
+/*   Updated: 2016/09/26 17:02:21 by lhurt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
-	size_t j;
+	char *new;
 
-	j = 0;
-	i = (ft_strlen(s1));
-	while (s2[j] != '\0' && j < n)
-	{
-		s1[i] = s2[j];
-		j++;
-		i++;
-	}
-	s1[i] = '\0';
-	return(s1);
+	new = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	if (!new)
+		return (NULL);
+	ft_strncpy(new, s1, ft_strlen(s1));
+	ft_strncat(new, s2, ft_strlen(s2));
+	return (new);
 }

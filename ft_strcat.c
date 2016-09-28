@@ -16,14 +16,8 @@ char	*ft_strcat(char *s1, const char *s2)
 {
 	unsigned int i;
 	unsigned int j;
-	char *tmp;
 
 	j = 0;
-	tmp = (char*)malloc(sizeof(char) * ft_strlen(s1));
-	ft_strcpy(tmp, s1);
-	s1 = (char*)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)));
-	ft_strcpy(s1, tmp);
-	free(tmp);
 	i = (ft_strlen(s1));
 	while (s2[j] != '\0')
 	{

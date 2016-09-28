@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhurt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 12:55:55 by lhurt             #+#    #+#             */
-/*   Updated: 2016/09/24 12:55:57 by lhurt            ###   ########.fr       */
+/*   Created: 2016/09/27 14:29:17 by lhurt             #+#    #+#             */
+/*   Updated: 2016/09/27 14:29:18 by lhurt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t i;
-	size_t j;
+	t_list	*curr;
+	t_list	*tail;
+	t_list	*head;
 
-	j = 0;
-	i = (ft_strlen(s1));
-	while (s2[j] != '\0' && j < n)
+	head = NULL;
+	while (lst)
 	{
-		s1[i] = s2[j];
-		j++;
-		i++;
+		tail = malloc(sizeof(size_t));
+		if (!tail)
+			return (NULL);
+		tail = f(lst);
+		if (!head)
+		{
+			head = tail;
+			curr = tail;
+		}
+		else
+		{
+			curr->next = tail;
+			curr = curr->next;
+		}
+		lst = lst->next;
 	}
-	s1[i] = '\0';
-	return(s1);
+	return (head);
 }

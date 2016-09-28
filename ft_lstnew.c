@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhurt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 12:55:55 by lhurt             #+#    #+#             */
-/*   Updated: 2016/09/24 12:55:57 by lhurt            ###   ########.fr       */
+/*   Created: 2016/09/27 11:24:21 by lhurt             #+#    #+#             */
+/*   Updated: 2016/09/27 11:24:23 by lhurt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	size_t i;
-	size_t j;
+	t_list	*new;
 
-	j = 0;
-	i = (ft_strlen(s1));
-	while (s2[j] != '\0' && j < n)
+	new = malloc(sizeof(t_list));
+	if (new)
 	{
-		s1[i] = s2[j];
-		j++;
-		i++;
+		if (content == NULL)
+		{
+			new->content_size = 0;
+			new->content = NULL;
+		}
+		else
+		{
+			new->content_size = content_size;
+			if (!(new->content = ft_memalloc(new->content_size)))
+				return (NULL);	
+			new->content = ft_memcpy(new->content, content, new->content_size);
+		}
+		new->next = NULL;
 	}
-	s1[i] = '\0';
-	return(s1);
+	return (new);
 }

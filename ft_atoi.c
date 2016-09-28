@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhurt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 12:55:55 by lhurt             #+#    #+#             */
-/*   Updated: 2016/09/24 12:55:57 by lhurt            ###   ########.fr       */
+/*   Created: 2016/09/26 11:22:31 by lhurt             #+#    #+#             */
+/*   Updated: 2016/09/26 11:22:33 by lhurt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *c)
 {
-	size_t i;
-	size_t j;
+	int i;
+	int	sign;
+	int	ans;
 
-	j = 0;
-	i = (ft_strlen(s1));
-	while (s2[j] != '\0' && j < n)
+	i = 0;
+	sign = 1;
+	while (c[i] <= ' ')
+		i++;
+	if (c[i] == '-' || c[i] == '+')
 	{
-		s1[i] = s2[j];
-		j++;
+		if (c[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	s1[i] = '\0';
-	return(s1);
+	while (ft_isdigit(c[i]))
+	{
+		ans = (ans * 10) + (c[i] - 48);
+		i++;
+	}
+	return (ans * sign);
 }

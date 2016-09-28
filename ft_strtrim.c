@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhurt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 12:55:55 by lhurt             #+#    #+#             */
-/*   Updated: 2016/09/24 12:55:57 by lhurt            ###   ########.fr       */
+/*   Created: 2016/09/26 18:21:22 by lhurt             #+#    #+#             */
+/*   Updated: 2016/09/26 18:21:23 by lhurt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+char	*ft_strtrim(char const *s)
 {
 	size_t i;
-	size_t j;
+	size_t start;
+	size_t end;
+	char *new;
 
-	j = 0;
-	i = (ft_strlen(s1));
-	while (s2[j] != '\0' && j < n)
+	i = 0;
+	while (s[i] <= ' ' && s[i] != '\0')
+		i++;
+	start = i;
+	while (s[i] != '\0')
+		i++;
+	while (s[i] <= ' ' && i > start)
+		i--;
+	end = i;
+	new = ft_strnew(end - start + 1);
+	if (!new)
+		return (NULL);
+	i = 0;
+	while (start++ <= end)
 	{
-		s1[i] = s2[j];
-		j++;
+		new[i] = s[start - 1];
 		i++;
 	}
-	s1[i] = '\0';
-	return(s1);
+	new[i] = '\0';
+	return (new);
 }

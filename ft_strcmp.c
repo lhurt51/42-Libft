@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhurt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 12:55:55 by lhurt             #+#    #+#             */
-/*   Updated: 2016/09/24 12:55:57 by lhurt            ###   ########.fr       */
+/*   Created: 2016/09/25 21:34:19 by lhurt             #+#    #+#             */
+/*   Updated: 2016/09/25 21:34:21 by lhurt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncat(char *s1, const char *s2, size_t n)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	size_t i;
-	size_t j;
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-	j = 0;
-	i = (ft_strlen(s1));
-	while (s2[j] != '\0' && j < n)
+	i = 0;
+	str1 = (unsigned char*)s1;
+	str2 = (unsigned char*)s2;
+	while ((str1[i] || str2[i]))
 	{
-		s1[i] = s2[j];
-		j++;
+		if (str1[i] != str2[i])
+			return (str1[i] - str2[i]);
 		i++;
 	}
-	s1[i] = '\0';
-	return(s1);
+	return (0);
 }
