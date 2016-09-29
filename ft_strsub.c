@@ -27,6 +27,5 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 		i++;
 		start++;
 	}
-	//new[i] = '\0';
 	return (new);
 }

@@ -14,8 +14,8 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	size_t i;
-	char *s;
+	size_t	i;
+	char	*s;
 
 	i = 0;
 	s = (char*)src;

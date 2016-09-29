@@ -19,13 +19,13 @@ char	*ft_strstr(const char *big, const char *little)
 
 	i = 0;
 	if (big[i] == little[i] && big[i] == '\0')
-		return((char*)&big[i]);
+		return ((char*)&big[i]);
 	while (big[i] != '\0')
 	{
 		j = i;
-		while(big[j] == little[j - i] && big[j] != '\0')
+		while (big[j] == little[j - i] && big[j] != '\0')
 			j++;
-		if(little[j - i] == '\0')
+		if (little[j - i] == '\0')
 		{
 			return ((char*)&big[i]);
 		}

@@ -14,8 +14,8 @@
 
 static void	itoa_strrev(char *str, size_t len)
 {
-	size_t i;
-	char tmp;
+	size_t	i;
+	char	tmp;
 
 	i = 0;
 	if (str[i] == '-')
@@ -33,9 +33,9 @@ static void	itoa_strrev(char *str, size_t len)
 
 static char	*itoa_build(int n, size_t *i, size_t *count)
 {
-	char *new;
-	long num;
-	long num2;
+	char	*new;
+	long	num;
+	long	num2;
 
 	num = n;
 	if (num < 0)
@@ -53,12 +53,12 @@ static char	*itoa_build(int n, size_t *i, size_t *count)
 	return (new);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	char *new;
-	long num;
-	size_t i;
-	size_t count;
+	char	*new;
+	long	num;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
 	count = 0;

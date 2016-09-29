@@ -14,10 +14,10 @@
 
 char	*ft_strtrim(char const *s)
 {
-	size_t i;
-	size_t start;
-	size_t end;
-	char *new;
+	size_t	i;
+	size_t	start;
+	size_t	end;
+	char	*new;
 
 	i = 0;
 	while (s[i] <= ' ' && s[i] != '\0')

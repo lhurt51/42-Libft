@@ -14,10 +14,10 @@
 
 static char	*word_builder(char const *str, char c, unsigned int *index)
 {
-	unsigned i;
-	unsigned start;
-	unsigned end;
-	char *word;
+	unsigned	i;
+	unsigned	start;
+	unsigned	end;
+	char		*word;
 
 	i = *index;
 	while (str[i] == c)
@@ -39,12 +39,12 @@ static char	*word_builder(char const *str, char c, unsigned int *index)
 	return (word);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
-	unsigned i;
-	unsigned j;
-	unsigned words;
-	char	**rtn;
+	unsigned	i;
+	unsigned	j;
+	unsigned	words;
+	char		**rtn;
 
 	i = 0;
 	words = 0;
