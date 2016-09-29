@@ -9,7 +9,7 @@
 #    Updated: 2016/09/21 10:54:02 by lhurt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
+# message to self fix memchr atoi itoa putnbr_fd runnnnn moulitest 
 CC =	gcc
 
 FLAG =	-c -Wall -Wextra -Werror
