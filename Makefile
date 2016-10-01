@@ -6,7 +6,7 @@
 #    By: lhurt <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/21 10:38:05 by lhurt             #+#    #+#              #
-#    Updated: 2016/09/21 10:54:02 by lhurt            ###   ########.fr        #
+#    Updated: 2016/09/30 20:02:07 by lhurt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 # message to self fix memchr atoi itoa putnbr_fd runnnnn moulitest 
@@ -95,3 +95,5 @@ fclean:	clean
 		@/bin/rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
