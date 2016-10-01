@@ -16,20 +16,18 @@ static char	*word_builder(char const *str, char c, unsigned int *index)
 {
 	unsigned	i;
 	unsigned	start;
-	unsigned	end;
 	char		*word;
 
-	i = *index;
-	while (str[i] == c)
-		i++;
-	start = i;
-	while (str[i] != c && str[i] != '\0')
-		i++;
-	end = i;
-	*index = i;
-	word = ft_strnew(end - start);
+	while (str[*index] == c && str[*index] != '\0')
+		(*index)++;
+	start = *index;
+	while (str[*index] != c && str[*index] != '\0')
+		(*index)++;
+	word = ft_strnew(*index - start);
+	if (!word)
+		return (NULL);
 	i = 0;
-	while (start < end)
+	while (start < *index)
 	{
 		word[i] = str[start];
 		start++;
@@ -50,7 +48,7 @@ char		**ft_strsplit(char const *s, char c)
 	words = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] != c && s[i + 1] == c)
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
 			words++;
 		i++;
 	}
