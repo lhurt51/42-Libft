@@ -9,7 +9,7 @@
 #    Updated: 2016/09/30 20:02:07 by lhurt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-# message to self fix memchr atoi itoa putnbr_fd runnnnn moulitest 
+# message to self fix memchr atoi itoa putnbr_fd runnnnn moulitest
 CC =	gcc
 
 FLAG =	-c -Wall -Wextra -Werror
@@ -18,7 +18,7 @@ NAME =	libft.a
 
 LIB =	ar rc
 
-RLIB =	ranlib 
+RLIB =	ranlib
 
 SRCS =	ft_putchar.c \
 		ft_putstr.c \
@@ -78,6 +78,7 @@ SRCS =	ft_putchar.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
+		get_next_line.c \
 
 OBJS =	$(SRCS:.c=.o)
 
